@@ -14,7 +14,13 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  tri = [a,b,c].sort
+  raise TriangleError if tri.min <= 0 or (tri[2] >= tri[1] + tri[0])
+  case tri.uniq.size
+  when 1 then :equilateral
+  when 2 then :isosceles
+  else :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
